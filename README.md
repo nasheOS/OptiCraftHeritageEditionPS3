@@ -49,7 +49,7 @@ apps/OptiCraft/
 The PS3 build uses your sdk and a native RSX rendering path, the directory is:
 
 ```text
-game/mcher0001
+HDD0/game/mcher0001
 ```
 
 ## Source layout
