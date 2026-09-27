@@ -6,7 +6,7 @@ This repository is not intended to be a line-for-line source translation. The ru
 
 ## Project goals
 
-- Keep the implementation portable across desktop PC, PlayStation 2, and Nintendo Wii.
+- Keep the implementation portable across desktop PC, PlayStation 2, PlayStation 3 and Nintendo Wii.
 - Preserve the intended classic gameplay and visual behavior where practical while allowing platform-specific adaptations.
 - Run on constrained hardware through aggressive memory, rendering, chunk, and asset-loading optimizations.
 - Keep platform code isolated behind explicit backends instead of scattering host-specific logic through the game code.
@@ -44,6 +44,14 @@ The Wii build uses devkitPPC/libogc and a native GX rendering path. The Homebrew
 apps/OptiCraft/
 ```
 
+### Nintendo Wii
+
+The PS3 build uses your sdk and a native RSX rendering path, the directory is:
+
+```text
+game/mcher0001
+```
+
 ## Source layout
 
 ```text
@@ -55,13 +63,14 @@ src/
   pc/           Desktop-specific implementation
   ps2/          PlayStation 2 implementation
   wii/          Nintendo Wii implementation
+  ps3/          PlayStation 3 implementation starting with Nintendo Wii
   util/         Shared utility code
 
 cmake/          Toolchains, source selection, and platform build logic
 external/       Third-party dependencies
 ```
 
-Platform targets deliberately select one implementation for each public backend. This keeps PC, PS2, and Wii implementations from accidentally entering the same link target.
+Platform targets deliberately select one implementation for each public backend. This keeps PC, PS2, Wii, and PS3 implementations from accidentally entering the same link target.
 
 ## Building
 
@@ -115,6 +124,15 @@ cmake --build --preset wii-release
 ```
 
 Use `wii-debug` for a debug build and `wii-bringup` for the minimal hardware/toolchain bring-up target.
+
+### PlayStation 3
+
+```text
+cmake --preset ps3-release
+cmake --build --preset ps3-release
+```
+
+Use `ps3-debug` for a debug build and `ps3-bringup` for the minimal hardware/toolchain bring-up target
 
 ## Development notes
 
