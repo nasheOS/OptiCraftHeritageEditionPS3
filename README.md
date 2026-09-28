@@ -44,7 +44,7 @@ The Wii build uses devkitPPC/libogc and a native GX rendering path. The Homebrew
 apps/OptiCraft/
 ```
 
-### Nintendo Wii
+### PlayStation 3
 
 The PS3 build uses your sdk and a native RSX rendering path, the directory is:
 
